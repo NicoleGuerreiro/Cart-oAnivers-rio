@@ -1,0 +1,554 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --amarelo: #f5c542;
+    --amarelo-claro: #ffeaa0;
+    --dourado: #d49b18;
+    --preto: #171717;
+    --creme: #fff9e9;
+    --marrom: #51341f;
+}
+
+body {
+    min-height: 100vh;
+
+    background:
+        radial-gradient(
+            circle at 20% 10%,
+            #fff0a8,
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 90% 90%,
+            #f6d66a,
+            transparent 25%
+        ),
+        var(--creme);
+
+    color: var(--preto);
+
+    font-family: Georgia, serif;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================
+   CARTÃO
+========================= */
+
+.cartao {
+    position: relative;
+
+    width: min(90%, 700px);
+
+    margin: 50px auto;
+
+    padding: 50px 40px;
+
+    background: rgba(255, 255, 255, 0.88);
+
+    border: 3px solid var(--amarelo);
+
+    border-radius: 30px;
+
+    box-shadow:
+        0 25px 60px rgba(70, 45, 10, .18);
+
+    text-align: center;
+
+    overflow: hidden;
+}
+
+
+/* =========================
+   TOPO
+========================= */
+
+.topo {
+    display: flex;
+
+    justify-content: center;
+
+    gap: 20px;
+
+    font-size: 28px;
+
+    margin-bottom: 25px;
+
+    animation: flutuar 3s ease-in-out infinite;
+}
+
+h1 {
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
+
+    font-weight: normal;
+
+    color: var(--preto);
+}
+
+h2 {
+    margin-top: 5px;
+
+    font-size: clamp(3rem, 10vw, 5.5rem);
+
+    color: var(--dourado);
+
+    font-style: italic;
+}
+
+.linha {
+    width: 180px;
+
+    height: 5px;
+
+    margin: 25px auto;
+
+    border-radius: 10px;
+
+    background:
+        linear-gradient(
+            90deg,
+            var(--preto),
+            var(--amarelo),
+            var(--preto)
+        );
+}
+
+
+/* =========================
+   MENSAGEM
+========================= */
+
+.mensagem {
+    max-width: 580px;
+
+    margin: 30px auto;
+
+    padding: 30px 20px;
+
+    border-radius: 20px;
+
+    background: #fffdf6;
+
+    border: 2px solid #f0d47a;
+
+    box-shadow:
+        inset 0 0 30px rgba(245,197,66,.12);
+}
+
+.mensagem p {
+    font-size: clamp(1.25rem, 4vw, 1.65rem);
+
+    line-height: 1.7;
+}
+
+.assinatura {
+    margin-top: 25px;
+
+    color: var(--dourado);
+
+    font-size: clamp(1.4rem, 5vw, 1.9rem) !important;
+
+    font-style: italic;
+
+    font-weight: bold;
+}
+
+
+/* =========================
+   BOLO DE LIVROS
+========================= */
+
+.bolo-area {
+    position: relative;
+
+    width: 360px;
+
+    max-width: 100%;
+
+    height: 280px;
+
+    margin: 60px auto 20px;
+}
+
+
+/* Livros */
+
+.livro-bolo {
+    position: absolute;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    border: 3px solid var(--preto);
+
+    border-radius: 7px;
+
+    box-shadow:
+        0 8px 8px rgba(0,0,0,.2);
+}
+
+.livro-bolo span {
+    font-size: 30px;
+}
+
+.livro-cima {
+    bottom: 155px;
+
+    width: 190px;
+
+    height: 55px;
+
+    background: var(--amarelo);
+}
+
+.livro-meio {
+    bottom: 100px;
+
+    width: 260px;
+
+    height: 60px;
+
+    background: var(--preto);
+}
+
+.livro-baixo {
+    bottom: 40px;
+
+    width: 310px;
+
+    height: 65px;
+
+    background: var(--marrom);
+}
+
+.prato {
+    position: absolute;
+
+    bottom: 20px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 350px;
+
+    max-width: 100%;
+
+    height: 25px;
+
+    border-radius: 50%;
+
+    background: var(--amarelo);
+
+    border: 3px solid var(--preto);
+}
+
+
+/* =========================
+   VELAS
+========================= */
+
+.velas {
+    position: absolute;
+
+    z-index: 10;
+
+    top: 15px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    display: flex;
+
+    gap: 18px;
+}
+
+.vela {
+    position: relative;
+
+    width: 13px;
+
+    height: 55px;
+
+    border-radius: 5px;
+
+    background:
+        repeating-linear-gradient(
+            45deg,
+            var(--preto) 0 6px,
+            var(--amarelo) 6px 12px
+        );
+
+    cursor: pointer;
+}
+
+.chama {
+    position: absolute;
+
+    top: -27px;
+
+    left: -5px;
+
+    font-size: 22px;
+
+    animation: chama 0.5s infinite alternate;
+}
+
+.vela.apagada .chama {
+    display: none;
+}
+
+@keyframes chama {
+    from {
+        transform: scale(.9);
+    }
+
+    to {
+        transform: scale(1.15);
+    }
+}
+
+
+/* =========================
+   CACHORRINHO
+========================= */
+
+.cachorro {
+    position: relative;
+
+    width: 180px;
+
+    margin: 40px auto;
+
+    padding: 15px;
+
+    background: #fff9e9;
+
+    border-radius: 50px;
+
+    border: 3px solid var(--preto);
+
+    box-shadow:
+        7px 7px 0 var(--amarelo);
+}
+
+.cachorro-emoji {
+    font-size: 100px;
+
+    animation: cachorro 2s ease-in-out infinite;
+}
+
+.cachecol {
+    position: absolute;
+
+    bottom: 15px;
+
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    font-size: 22px;
+
+    white-space: nowrap;
+}
+
+.emblema {
+    margin-top: 10px;
+
+    font-size: 28px;
+}
+
+@keyframes cachorro {
+
+    0%, 100% {
+        transform: rotate(-2deg);
+    }
+
+    50% {
+        transform: rotate(2deg);
+    }
+}
+
+
+/* =========================
+   RAQUETE
+========================= */
+
+.beach-tennis {
+    position: absolute;
+
+    right: 25px;
+
+    bottom: 120px;
+
+    font-size: 55px;
+
+    transform: rotate(-25deg);
+
+    animation: raquete 3s ease-in-out infinite;
+}
+
+@keyframes raquete {
+
+    0%, 100% {
+        transform: rotate(-25deg);
+    }
+
+    50% {
+        transform: rotate(-15deg) translateY(-8px);
+    }
+}
+
+
+/* =========================
+   LIVROS CAINDO
+========================= */
+
+.livro-caindo {
+    position: fixed;
+
+    top: -80px;
+
+    z-index: 20;
+
+    pointer-events: none;
+
+    animation: cair linear forwards;
+}
+
+@keyframes cair {
+
+    from {
+        transform:
+            translateY(-100px)
+            rotate(0deg);
+    }
+
+    to {
+        transform:
+            translateY(110vh)
+            rotate(360deg);
+    }
+}
+
+
+/* =========================
+   DECORAÇÕES
+========================= */
+
+.decoracao {
+    position: fixed;
+
+    z-index: 1;
+
+    font-size: 40px;
+
+    pointer-events: none;
+
+    opacity: .7;
+}
+
+.decoracao-1 {
+    top: 10%;
+    left: 4%;
+}
+
+.decoracao-2 {
+    top: 25%;
+    right: 4%;
+}
+
+.decoracao-3 {
+    bottom: 15%;
+    left: 5%;
+}
+
+.decoracao-4 {
+    bottom: 8%;
+    right: 5%;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    margin-top: 50px;
+
+    padding-top: 25px;
+
+    border-top: 2px dashed #d9b84f;
+
+    font-size: 25px;
+}
+
+
+/* =========================
+   ANIMAÇÕES
+========================= */
+
+@keyframes flutuar {
+
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+
+/* =========================
+   CELULAR
+========================= */
+
+@media (max-width: 600px) {
+
+    .cartao {
+        width: 94%;
+
+        margin: 20px auto;
+
+        padding: 35px 18px;
+    }
+
+    .topo {
+        gap: 8px;
+
+        font-size: 23px;
+    }
+
+    .bolo-area {
+        transform: scale(.85);
+
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .beach-tennis {
+        right: 0;
+
+        font-size: 40px;
+    }
+
+    .decoracao {
+        font-size: 25px;
+    }
+
+}
